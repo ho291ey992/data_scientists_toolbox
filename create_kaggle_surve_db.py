@@ -191,38 +191,3 @@ class CreateKaggleSurveyDB:
 
 create_kaggle_survey_db = CreateKaggleSurveyDB()
 create_kaggle_survey_db.create_database()
-
-
-# ---------------------- 備註 ----------------------------
-
-# 這種 dict 的 key 使用方法是叫 "元祖"
-[(2020, 'responses'), 
- (2020, 'question_descriptions'), 
- (2021, 'responses'), 
- (2021, 'question_descriptions'), 
- (2022, 'responses'), 
- (2022, 'question_descriptions')]
-# Python 字典的 key 必須是 不可變 (immutable) 的對象，例如： ✅ int, str, tuple, bool 可以當 key
-# ❌ list, dict, set 不能當 key（因為它們是可變的）
-# 元組 (2020, "responses") 是 不可變 (immutable)，所以可以作為 key。
-
-# 在分割資料時出現I/O 堵塞問題，最後我決定在程式碼後加上 ";" ,直接完中斷完成程式碼。
-# question_description_split[0]
-
-# 查看資料
-# for (year, dtype), df in df_dict.items():
-#     if dtype == "responses":
-#         print(f"Year: {year}, Type: {dtype}, Shape: {df.shape}")
-#         print(df.head(1))
-#     else :
-#         print(f"Year: {year}, Type: {dtype}, Shape: {df.shape}")
-#         print(df[1]);
-
-'''
-Year: 2020, Type: responses, Shape: (20036, 355)
-Year: 2020, Type: question_descriptions, Shape: (355,)
-Year: 2021, Type: responses, Shape: (25973, 369)
-Year: 2021, Type: question_descriptions, Shape: (369,)
-Year: 2022, Type: responses, Shape: (23997, 296)
-Year: 2022, Type: question_descriptions, Shape: (296,)
-'''

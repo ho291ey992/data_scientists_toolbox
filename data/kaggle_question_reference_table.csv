@@ -1,0 +1,25 @@
+﻿分類,排序,欄位,col_eng,question_type,分析方向,question_description,2022,2021,2020,中文翻譯
+基礎輪廓分析,1,年齡,age,S,年齡分布，年齡與職稱/薪資關係,What is your age (# years)?,Q2,Q1,Q1,您的年齡是多少（# 歲）？
+基礎輪廓分析,2,性別,gender,S,性別比例、分析性別與職位或工具的差異,What is your gender?,Q3,Q2,Q2,您的性別是？
+基礎輪廓分析,3,國家,country,S,國家別分布、變化趨勢,In which country do you currently reside?,Q4,Q3,Q3,您目前居住在哪個國家？
+基礎輪廓分析,4,學歷,education,S,教育與職位/薪資/工具使用關聯,What is the highest level of formal education that you have attained or plan to attain within the next 2 years?,Q8,Q4,Q4,您已獲得或計劃在未來 2 年內獲得的最高正規教育程度是多少？
+基礎輪廓分析,5,薪資,salary,S,各職位或技能的薪資差異，國家/教育/工具分析,What is your current yearly compensation (approximate $USD)?,Q29,Q25,Q24,您目前的年薪是多少（大約美元）？
+職業與工作相關分析,6,職稱,job_title,S,哪些職稱最常見，與年齡、經驗、薪資的關聯,Select the title most similar to your current role (or most recent title if retired):,Q23,Q5,Q5,選擇與您目前職位最相似的頭銜（如果退休，則選擇最近的頭銜）：
+職業與工作相關分析,7,工作職責,job_role,M,常見工作內容 vs 職稱關係（雙變量分析）,Select any activities that make up an important part of your role at work: (Select all that apply),Q28,Q24,Q23,選擇構成您工作角色重要組成部分的任何活動：（選擇所有適用項目）
+職業與工作相關分析,8,公司規模,company_size,S,大公司 vs 小公司有無工具/工作內容差異,What is the size of the company where you are employed?,Q25,Q21,Q20,您受僱的公司規模有多大？
+職業與工作相關分析,9,DS 團隊規模,ds_team_size,S,大公司 vs 小公司差異,Approximately how many individuals are responsible for data science workloads at your place of business?,Q26,Q22,Q21,您的營業場所大約有多少人負責資料科學工作負載？
+職業與工作相關分析,10,公司是否使用機器學習,company_uses_ml,S,ML 在產業的滲透率，與職稱/工具有無關聯,Does your current employer incorporate machine learning methods into their business?,Q27,Q23,Q22,您目前的雇主是否將機器學習方法融入他們的業務中？
+技能與工具分析,11,使用的程式語言,prog_lang,M,語言使用率、與職稱或工作內容關聯,What programming languages do you use on a regular basis? (Select all that apply),Q12,Q7,Q7,您經常使用哪些程式語言？ （選擇所有適用項目）
+技能與工具分析,12,使用 IDE,ide_tool,M,開發工具偏好，可搭配經驗、職稱分析,Which of the following integrated development environments (IDE's) do you use on a regular basis? (Select all that apply),Q13,Q9,Q9,您經常使用下列哪些整合開發環境 (IDE)？ （選擇所有適用項目）
+技能與工具分析,13,使用視覺化函數,visualization,M,使用的視覺化工具,What data visualization libraries or tools do you use on a regular basis? (Select all that apply),Q15,Q14,Q14,您經常使用哪些資料視覺化函式庫或工具？ （選擇所有適用項目）
+技能與工具分析,14,ML 框架使用情況,ml_framework,M,哪些框架受歡迎、經驗與使用傾向,Which of the following machine learning frameworks do you use on a regular basis? (Select all that apply),Q17,Q16,Q16,您經常使用下列哪些機器學習框架？ （選擇所有適用項目）
+技能與工具分析,15,常用 ML 演算法,ml_algo,M,哪些演算法最受歡迎，與工作內容有無關聯,Which of the following ML algorithms do you use on a regular basis? (Select all that apply):,Q18,Q17,Q17,您經常使用下列哪些機器學習演算法？ （選擇所有適用項目）：
+技能與工具分析,16,常用 CV 技術,cv_tech,M,技術領域分布、與職稱/工具偏好交叉分析,Which categories of computer vision methods do you use on a regular basis? (Select all that apply),Q19,Q18,Q18,您經常使用哪些類別的電腦視覺方法？ （選擇所有適用項目）
+技能與工具分析,17,常用 NLP 技術,nlp_tech,M,技術領域分布、與職稱/工具偏好交叉分析,Which of the following natural language processing (NLP) methods do you use on a regular basis? (Select all that apply),Q20,Q19,Q19,您經常使用下列哪些自然語言處理 (NLP) 方法？ （選擇所有適用項目）
+程式與機器學習經驗,18,程式經驗(年),coding_exp_years,S,資歷對技能選擇/職位有何影響,For how many years have you been writing code and/or programming?,Q11,Q6,Q6,您編寫程式碼和/或程式設計已經有多少年了？
+程式與機器學習經驗,19,使用機器學習(年),ml_exp,S,資歷對技能選擇/職位有何影響，但更聚焦在 ML 領域,For how many years have you used machine learning methods?,Q16,Q15,Q15,您使用機器學習方法有多少年了？
+程式與機器學習經驗,20,使用TPU的次數,tup_usage_count,S,是否使用張量(TPU)處理資料,Approximately how many times have you used a TPU (tensor processing unit)?,Q43,Q13,Q13,您大約使用過幾次 TPU（張量處理單元）？
+外部資源與趨勢追蹤,21,最愛的資料科學媒體來源,fav_ds_media,M,了解熱門學習媒體，學習趨勢參考,Who/what are your favorite media sources that report on data science topics? (Select all that apply),Q44,Q42,Q39,您最喜歡報道資料科學主題的媒體來源有哪些？ （選擇所有適用項目）
+外部資源與趨勢追蹤,22,資料科學課程平台,ds_course,M,最受歡迎的學習管道，與經驗/年齡的關係,On which platforms have you begun or completed data science courses? (Select all that apply),Q6,Q40,Q37,您在哪些平台上開始或完成了資料科學課程？ （選擇所有適用項目）
+感興趣的題目,23,產業,industry,S,目標行業,In what industry is your current employer/contract (or your most recent employer if retired)?,Q24,Q20,-,您目前的雇主/合約屬於哪個行業？
+感興趣的題目,24,對第一次學習有幫助,first_started_helpful,M,學習資源,What products or platforms did you find to be most helpful when you first started studying data science? (Select all that apply),Q7,-,-,當您第一次開始學習資料科學時，您發現哪些產品或平台最有幫助？

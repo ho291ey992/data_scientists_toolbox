@@ -4,6 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots # 用於建立多圖子圖畫布
 import panel as pn # 用於建立互動式面板與數據更新
+# c:/Users/Steve/anaconda3/envs/data_scientists_toolbox/python.exe
 
 class SurveyVisualizer :
     def __init__(self, file_path, file_save_part):
@@ -95,6 +96,25 @@ class SurveyVisualizer :
         len_d = len(d)
         
         is_multi_year = len(d['surveyed_in'].drop_duplicates()) > 1
+
+        responses_single_choice = self.responses_single_choice
+        # 總人數處理
+        
+        if d['question_index'][0] == 'salary' and is_multi_year: # 總薪資人數
+            col = (responses_single_choice['job_title_group']=='Data-related') & (responses_single_choice['salary_group'] == 'correct_info')
+            all_people = responses_single_choice.loc[col,'id'].count()
+
+        elif is_multi_year: # 總人數
+            all_people = responses_single_choice.loc[responses_single_choice['job_title_group']=='Data-related','id'].count()
+
+        elif d['question_index'][0] == 'salary': # 單年度薪資人數
+            col = (responses_single_choice['surveyed_in'] == d['surveyed_in'][0]) & (responses_single_choice['job_title_group']=='Data-related') & (responses_single_choice['salary_group'] == 'correct_info')
+            all_people = responses_single_choice.loc[col,'id'].count()
+
+        else: # 單年度人數
+            col = (responses_single_choice['surveyed_in'] == d['surveyed_in'][0]) & (responses_single_choice['job_title_group']=='Data-related') 
+            all_people = responses_single_choice.loc[col,'id'].count()
+
         # 圓餅圖：若有多個年份的資料，聚合後處理 top 9 + other
         if is_multi_year:
             x = {}
@@ -108,14 +128,14 @@ class SurveyVisualizer :
                     x[i] = [d[i][0]]
             d = pd.concat([d[-9:], pd.DataFrame(x)], axis=0).reset_index(drop=True).sort_values('count')
             # 計算百分比。
-            d['count_pct'] = round((d['count'] / d['count'].sum()) * 100, 2)
+            d['count_pct'] = round((d['count'] / all_people) * 100, 2)
             # 產生 text 文字，將資料轉為文字(str)，例如：1000 人 (50.0%)
             d['text'] = d.apply(lambda row: f"{row['count']}人 ({row['count_pct']:.1f} %)", axis=1)
             return d.drop(columns='surveyed_in').reset_index(drop=True)
         # 橫條圖：若只有單一年度，直接抓 top 9
         else:
             # 計算百分比。
-            d['count_pct'] = round((d['count'] / d['count'].sum()) * 100, 2)
+            d['count_pct'] = round((d['count'] / all_people) * 100, 2)
             # 產生 text 文字，將資料轉為文字(str)，例如：1000 人 (50.0%)
             d['text'] = d.apply(lambda row: f"{row['count']}人 ({row['count_pct']:.1f} %)", axis=1)
             return d[-9:]
@@ -397,7 +417,12 @@ class SurveyVisualizer :
         self.px_scatter()
         print('氣泡圖 pass')
 
-file_path = "D:/data_scientists_toolbox/data/kaggle.db"
-file_save_part = "D:/data_scientists_toolbox/"
+    def date_return(self):
+        return self.responses, self.responses_single_choice, self.kaggle_question_reference_table, self.salary_order, self.country_area, self.coding_exp_years_order, self.prog_lang_skill_group
+    
+
+file_path = "練習專案三：資料科學家的工具箱/data_scientists_toolbox/data/kaggle.db"
+file_save_part = "練習專案三：資料科學家的工具箱/data_scientists_toolbox/html/"
 test = SurveyVisualizer(file_path, file_save_part)
 test.create_html()
+
